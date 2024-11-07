@@ -6,9 +6,7 @@ This repository seeks to serve as a restrospective on the creation of the proces
 
 ### Javascript Code
 
-The API Gateway handles requests for the Javascript, and helps communicate with the other tools such as Lambda and DynamoDB that are being used for the API. The Javascript is included in this repository under [visitor-counter.js](https://github.com/Uyu2/Backend/blob/3a33cee3994e22ebe4e1d77a2889e8935672de3c/visitor-counter.js). The [index.html](https://github.com/Uyu2/Backend/blob/3a33cee3994e22ebe4e1d77a2889e8935672de3c/index.html) file is also included in this repository, as the Javascript file is referenced in it, which is what triggers the API to function when a visitor clicks on the website. 
-
-The Javascript itself operates on the frontend, requesting the number of visitors who have clicked on the page and then returning the value. It is then assigned to the website under "Visitor #: "
+The API Gateway handles requests for the Javascript, and helps communicate with the other tools such as Lambda and DynamoDB that are being used for the API. The Javascript itself operates on the frontend, requesting the number of visitors who have clicked on the page and then returning the value. It is then assigned to the website under "Visitor #: "
 
 ### Database
 
@@ -24,7 +22,7 @@ Rather than communicating directly with the database, the API is built on AWS La
 <br><br>
 <img width="1068" alt="Screenshot 2024-11-06 at 3 14 07 PM" src="https://github.com/user-attachments/assets/bc9762c1-237a-4c4e-982a-d1d75e15fe7b">
 <br><br>
-This is impossible to achieve if the API Gateway and Lambda function are not integrated. As shown above, once they are integrated, they can communicate with each other. The Javascript file in this repository is the function that will cause the frontend code and backend logic to interact, through the API Gateway endpoint. The [Python file](https://github.com/Uyu2/Backend/blob/3a33cee3994e22ebe4e1d77a2889e8935672de3c/visitorCount.py) is the code within the Lambda function, and when triggered is the function that increments the visitor count and returns the value.
+This is impossible to achieve if the API Gateway and Lambda function are not integrated. As shown above, once they are integrated, they can communicate with each other. The Javascript file in this repository is the function that will cause the frontend code and backend logic to interact, through the API Gateway endpoint. The Python file is the code within the Lambda function, and when triggered is the function that increments the visitor count and returns the value.
 
 Going through the Python code more in-depth, the table is referenced from DynamoDB when the Lambda function activates. It increments the current number, then gets the visitor_count specifically from its 'path' and saves the response as visitor_count. At the end, it then returns this value, where it is then put as the value for the current amount of visitors.
 
