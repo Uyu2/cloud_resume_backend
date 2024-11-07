@@ -27,3 +27,7 @@ Rather than communicating directly with the database, the API is built on AWS La
 This is impossible to achieve if the API Gateway and Lambda function are not integrated. As shown above, once they are integrated, they can communicate with each other. The Javascript file in this repository is the function that will cause the frontend code and backend logic to interact, through the API Gateway endpoint. The [Python file](https://github.com/Uyu2/Backend/blob/3a33cee3994e22ebe4e1d77a2889e8935672de3c/visitorCount.py) is the code within the Lambda function, and when triggered is the function that increments the visitor count and returns the value.
 
 Going through the Python code more in-depth, the table is referenced from DynamoDB when the Lambda function activates. It increments the current number, then gets the visitor_count specifically from its 'path' and saves the response as visitor_count. At the end, it then returns this value, where it is then put as the value for the current amount of visitors.
+
+### Testing
+
+Included within this repository lastly is the tests. This includes the unit test, system test, and end-to-end test. These function to test the many different levels we are working with, and specific to this code tests the visitor counter, lambda unit, and cloud resume.
